@@ -1,0 +1,79 @@
+/**
+ * "Yet Another Multicolumn Layout" - (X)HTML/CSS framework
+ * (en) stylesheet for screen layout
+ * (de) Stylesheet für das Bildschirm-Layout
+ *
+ * @creator       YAML Builder V1.2.1 (http://builder.yaml.de)
+ * @file          basemod.css
+ * @-yaml-minver  3.3
+ */
+
+@media screen, projection
+{
+  /** 
+   * (en) Forcing vertical scrollbars in IE8, Firefox, Webkit & Opera 
+   * (de) Erzwingen vertikaler Scrollbalken in IE8, Firefox, Webkit & Opera 
+   *
+   * @workaround
+   * @affected IE8, FF, Webkit, Opera
+   * @css-for all
+   * @valid CSS3
+   */
+  html { overflow-x: hidden; }
+  body { width: 100%;  -webkit-text-size-adjust: 100%; }
+
+  /*-------------------------------------------------------------------------*/
+
+  /* (en) Marginal areas & page background */
+  /* (de) Randbereiche & Seitenhintergrund */
+
+  /* Layout Alignment | Layout-Ausrichtung */
+  /* .page_margins -> see: grid.css */
+
+  /* Layout Properties | Layout-Eigenschaften */
+  html { background: #FFFFFF; }
+  #header { width: 100%; }
+  #main {
+  	width: 100%;
+  }
+  #footer { width: 100%; }
+	
+	img, object, embed {
+		max-width: 100%;
+	}
+
+	img {
+		height: auto;
+	}
+
+  /*-------------------------------------------------------------------------*/
+
+  /**
+   * (en) Formatting content container
+   * (de) Formatierung der Inhalts-Container
+   *
+   */
+	
+	
+	/**HEADER**/
+	
+	
+	/**MAIN**/
+	#main { padding: 0 }
+	
+	
+	/**FOOTER**/
+
+
+/*-------------------------------------------------------------------------*/
+
+/* ============================= */
+/* ! Layout for mobile version   */
+/* ============================= */
+
+@media handheld, only screen and (max-width: 767px) {
+	
+	
+
+}
+

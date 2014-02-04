@@ -1,0 +1,619 @@
+/**
+ * "Yet Another Multicolumn Layout" - (X)HTML/CSS Framework
+ *
+ * (en) Uniform design of standard content elements
+ * (de) Einheitliche Standardformatierungen für die wichtigten Inhalts-Elemente
+ *
+ * @copyright       Copyright 2005-2010, Dirk Jesse
+ * @license         CC-A 2.0 (http://creativecommons.org/licenses/by/2.0/),
+ *                  YAML-C (http://www.yaml.de/en/license/license-conditions.html)
+ * @link            http://www.yaml.de
+ * @package         yaml
+ * @version         3.3
+ * @revision        $Revision:392 $
+ * @lastmodified    $Date:2009-07-05 12:18:40 +0200 (So, 05. Jul 2009) $
+ * @appdef yaml
+ */
+
+@media all
+{
+ /**
+  * Fonts
+  *
+  * (en) global settings of font-families and font-sizes
+  * (de) Globale Einstellungen für Zeichensatz und Schriftgrößen
+  *
+  * @section content-global-settings
+  */
+
+  /* (en) reset font size for all elements to standard (16 Pixel) */
+  /* (de) Alle Schriftgrößen auf Standardgröße (16 Pixel) zurücksetzen */
+  html * { font-size:100.01%; }
+
+ /**
+  * (en) reset monospaced elements to font size 16px in all browsers
+  * (de) Schriftgröße von monospaced Elemente in allen Browsern auf 16 Pixel setzen
+  *
+  * @see: http://webkit.org/blog/67/strange-medium/
+  */
+
+  textarea, pre, code, kbd, samp, var, tt {
+    font-family:Consolas, "Lucida Console", "Andale Mono", "Bitstream Vera Sans Mono", "Courier New", Courier;
+  }
+
+  /* (en) base layout gets standard font size 12px */
+  /* (de) Basis-Layout erhält Standardschriftgröße von 12 Pixeln */
+  body {
+    font-family:'foliomed', Helvetica, Arial, sans-serif;
+    font-size:75.00%;
+    color:#000;
+    -webkit-font-smoothing: antialiased;
+  }
+  
+  /* --- Font Face Rules --------------------------------------------------------------------------------*/
+  
+  @font-face {
+    font-family: 'foliobold';
+    src: url('../../fonts/foliobtbolcon-webfont.eot');
+    src: url('../../fonts/foliobtbolcon-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../../fonts/foliobtbolcon-webfont.woff') format('woff'),
+         url('../../fonts/foliobtbolcon-webfont.ttf') format('truetype'),
+         url('../../fonts/foliobtbolcon-webfont.svg#folioregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: 'foliomed';
+    src: url('../../fonts/foliomed-webfont.eot');
+    src: url('../../fonts/foliomed-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../../fonts/foliomed-webfont.woff') format('woff'),
+         url('../../fonts/foliomed-webfont.ttf') format('truetype'),
+         url('../../fonts/foliomed-webfont.svg#folioregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+  }
+
+
+  /*--- Headings | Überschriften ------------------------------------------------------------------------*/
+
+  h1,h2,h3,h4,h5,h6 {
+    font-family: 'foliomed', Arial, Helvetica, sans-serif;
+    font-weight:normal;
+    color:#000;
+    margin:0;
+  }
+
+  h1 { font-size:700%; text-align: center;}                       /* 30px */
+  h2 { font-size:200%; color: #0064f5;}                       /* 24px */
+  h3 { 
+    font-size:28px;
+    font-family: 'foliobold';
+    color: #0064f5;
+    margin-bottom: 5px;
+  }                       /* 18px */
+  h4 { font-size:133.33%; }                    /* 16px */
+  h5 { font-size:116.67%; }                    /* 14px */
+  h6 { font-size:116.67%; }                    /* 14px */
+
+  /* --- Lists | Listen  -------------------------------------------------------------------------------- */
+
+  ul, ol, dl { line-height:1.5em; margin:0 0 1em 1em; }
+  ul { list-style-type:disc; }
+  ul ul { list-style-type:circle; margin-bottom:0; }
+
+  ol { list-style-type:decimal; }
+  ol ol { list-style-type:lower-latin; margin-bottom:0; }
+
+  li { margin-left:0.8em; line-height:1.5em; }
+
+  dt { font-weight:bold; }
+  dd { margin:0 0 1em 0.8em; }
+
+  /* --- general text formatting | Allgemeine Textauszeichnung ------------------------------------------ */
+
+  p {
+    margin:0;
+    color: #0064f5;
+    font-family:'foliomed';
+    font-size: 14px;
+    line-height: 16px;
+  }
+
+  blockquote, cite, q {
+    font-family:Georgia, "Times New Roman", Times, serif;
+    font-style:italic;
+  }
+  blockquote { margin:0 0 1em 1.6em; color:#666; }
+
+  strong,b { font-weight:bold; }
+  em,i { font-style:italic; }
+
+  big { font-size:116.667%; }
+  small { font-size:91.667%; }
+ 
+  pre { line-height:1.5em; margin:0 0 1em 0; }
+  pre, code, kbd, tt, samp, var { font-size:100%; }
+  pre, code { color:#800; }
+  kbd, samp, var, tt { color:#666; font-weight:bold; }
+  var, dfn { font-style:italic; }
+
+  acronym, abbr {
+    border-bottom:1px #aaa dotted;
+    font-variant:small-caps;
+    letter-spacing:.07em;
+    cursor:help;
+  }
+  
+  sub { vertical-align: sub; font-size: smaller; }
+  sup { vertical-align: super; font-size: smaller; }
+
+  hr {
+    color:#fff;
+    background:transparent;
+    margin:0 0 0.5em 0;
+    padding:0 0 0.5em 0;
+    border:0;
+    border-bottom:1px #eee solid;
+  }
+
+  /*--- Links ----------------------------------------------------------------------------------------- */
+
+  a { color:#0064f5; background:transparent; text-decoration:none; }
+
+  /* (en) maximum constrast for tab focus - change with great care */
+  /* (en) Maximaler Kontrast für Tab Focus - Ändern Sie diese Regel mit Bedacht */
+  a:focus { text-decoration:none; color:#0064f5; outline none; border-bottom: 2px solid #0064f5; }
+  a:hover,
+  a:active { color:#0064f5; text-decoration:underline; outline: 0 none; }
+
+  /* --- images (with optional captions) | Bilder (mit optionaler Bildunterschrift) ------------------ */
+
+  p.icaption_left { float:left; display:inline; margin:0 1em 0.15em 0; }
+  p.icaption_right { float:right; display:inline; margin:0 0 0.15em 1em; }
+
+  p.icaption_left img,
+  p.icaption_right img { padding:0; border:1px #888 solid; }
+
+  p.icaption_left strong,
+  p.icaption_right strong { display:block; overflow:hidden; margin-top:2px; padding:0.3em 0.5em; background:#eee; font-weight:normal; font-size:91.667%; }
+
+ /**
+  * ------------------------------------------------------------------------------------------------- #
+  *
+  * Generic Content Classes
+  *
+  * (en) standard classes for positioning and highlighting
+  * (de) Standardklassen zur Positionierung und Hervorhebung
+  *
+  * @section content-generic-classes
+  */
+
+  .highlight { color:#c30; }
+  .dimmed { color:#888; }
+
+
+  .note { background:#efe; color:#040; border:2px #484 solid; padding:10px; margin-bottom:1em; }
+  .important { background:#ffe; color:#440; border:2px #884 solid; padding:10px; margin-bottom:1em; }
+  .warning { background:#fee; color:#400; border:2px #844 solid; padding:10px; margin-bottom:1em; }
+
+  .float_left { float:left; display:inline; margin-right:1em; margin-bottom:0.15em; }
+  .float_right { float:right; display:inline; margin-left:1em; margin-bottom:0.15em; }
+  .center { display:block; text-align:center; margin:0.5em auto; }
+
+  .border-bottom-blue {
+    border-bottom: 2px solid #0064f5;
+  }
+
+ /**
+  * ------------------------------------------------------------------------------------------------- #
+  *
+  * Tables | Tabellen
+  *
+  * (en) Generic classes for table-width and design definition
+  * (de) Generische Klassen für die Tabellenbreite und Gestaltungsvorschriften für Tabellen
+  *
+  * @section content-tables
+  */
+
+  table { width:auto; border-collapse:collapse; margin-bottom:0.5em; border-top:2px #888 solid; border-bottom:2px #888 solid; }
+  table caption { font-variant:small-caps; }
+  table.full { width:100%; }
+  table.fixed { table-layout:fixed; }
+
+  th,td { padding:0.5em; }
+  thead th { color:#000; border-bottom:2px #800 solid; }
+  tbody th { background:#e0e0e0; color:#333; }
+  tbody th[scope="row"], tbody th.sub { background:#f0f0f0; }
+
+  tbody th { border-bottom:1px solid #fff; text-align:left; }
+  tbody td { border-bottom:1px solid #eee; }
+
+  tbody tr:hover th[scope="row"],
+  tbody tr:hover tbody th.sub { background:#f0e8e8; }
+  tbody tr:hover td { background:#fff8f8; }
+
+ /**
+  * ------------------------------------------------------------------------------------------------- #
+  *
+  * Miscellaneous | Sonstiges
+  *
+  * @section content-misc
+  */
+  html, body {
+    height: 100%;
+    overflow: hidden;
+  }
+
+  body {
+    position: relative;
+  }
+
+  sup  {
+    font-family: 'foliobold';
+  	/*vertical-align: 145%;*/
+  	vertical-align: top;
+  	font-size: 30% !important;
+  }
+  
+  a:hover {
+	  cursor: pointer;
+	  text-decoration: none;
+	  border-bottom: 2px solid #0064f5;
+  }
+
+  a.contact {
+    color: #000;
+    text-decoration: none;
+  }
+
+  a.contact:hover {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+    border: none;
+  }
+    
+  #main {
+  	  position: relative;
+  	  height: 100%;
+  }
+  
+  #content div.twelvecol {
+	  height: 100% !important;
+  }
+  
+  #bg {
+    width: 98%;
+    height: 96%;
+	  display: block;
+	  position: absolute;
+	  top: 0;
+    left: 0;
+	  z-index: 2;
+	  overflow: hidden;
+    padding: 2% 1%;
+  }
+  
+  #bg div.logo-col {
+	  float: left;
+	  width: 33%;
+	  position: relative;
+	  margin: 0px;
+  }
+  
+  div.horiz1, div.horiz2, div.horiz3 {
+	  width: 100%;
+	  height: 2.75%;
+	  position: absolute;
+	  background: #0063f5;
+  }
+  
+  div.horiz1 {
+	  top: 0px;
+  }
+  
+  div.horiz2 {
+	  top: 300px;
+  }
+  
+  div.horiz3 {
+	  bottom: 0px;
+  }
+  
+  div.angle1-wrapper {
+	  width: 100%;
+	  height: 48%;
+	  margin-bottom: 4%;
+	  position: relative;
+  }
+  
+  div.angle2-wrapper {
+	  width: 100%;
+	  height: 48%;
+	  position: relative;
+  }
+  
+  div.angle3-wrapper {
+	  height: 100%;
+	  width: 100%;
+	  position: relative;
+  }
+  
+  div.angle1 {
+	  position: absolute;
+	  bottom: 0px;
+	  left: 30px;
+	  width: 100%;
+	  height: 6%;
+	  background: #0063f5;
+  }
+  
+  div.angle2 {
+	  position: absolute;
+	  top: 0px;
+	  left: 30px;
+	  width: 100%;
+	  height: 6%;
+	  background: #0063f5;
+  }
+  
+  div.angle3 {
+	  position: absolute;
+	  top: 0px;
+	  left: 60px;
+	  width: 100%;
+	  height: 3%;
+	  background: #0063f5;
+  }
+  
+ div.leftnav {
+  	  z-index: 4;
+	  position: fixed;
+	  top: 3%;
+	  left: 2.5%;
+  }
+  
+  div.rightnav {
+  	  z-index: 4;
+	  position: fixed;
+	  top: 3%;
+	  right: 2.5%;
+  }
+  
+  div.leftnav a.active, div.rightnav a.active {
+	  border-bottom: 2px solid #0064f5;
+  }
+  
+  #content.info {
+	  position: relative;
+	  z-index: 3;
+  }
+
+  #content.info .eightcol {
+    width: 61.4%;
+    padding: 0 2% 0 2%;
+  }
+  
+  #content.info #title-wrapper {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 13%;
+    max-width: 67%;
+  }
+
+  #content.form {
+	  position: relative;
+	  z-index: 1;
+    width: 95%;
+    display: none;
+  }
+
+  #content.form div.fourcol {
+    margin-top: 11%;
+  }
+  
+  div.popup {
+	  position: absolute;
+	  z-index: 5;
+	  width: 153px;
+    max-height: 400px;
+	  bottom: 0px;
+	  left: 0px;
+	  border: 2px solid #0064f5;
+	  overflow: hidden;
+	  padding: 15px;
+    background: #fff;
+    overflow: hidden;
+
+    -moz-box-shadow: 5px 5px 0px #0062f5;
+    -webkit-box-shadow: 5px 5px 0px #0062f5;
+    box-shadow: 5px 5px 0px #0062f5;
+  }
+
+  div.popup a.close {
+    display: block;
+    height: 24px;
+    width: 24px;
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: url('../../images/close.png') no-repeat;
+    background-size: 12px 12px;
+    background-position: right top;
+  }
+
+  a.close:hover {
+    text-decoration: none;
+    border: none;
+  }
+
+  div.popup:hover {
+    cursor: move;
+  }
+  
+  #pop1 {
+    max-height: 183px;
+    display: none;
+    -webkit-hyphens: auto;
+	-moz-hyphens: auto;
+	hyphens: auto;
+  }
+  
+  #pop2 {
+	  max-height: 227px;
+    display: none;
+    -webkit-hyphens: auto;
+	-moz-hyphens: auto;
+	hyphens: auto;
+  }
+  
+  #pop3 {
+	  max-height: 217px;
+    display: none;
+  }
+  
+  #pop4 {
+	  max-height: 212px;
+    display: none;
+  }
+
+  .sp {
+    display: none;
+  }
+  
+  a.pop1-exp {
+	margin-left: 4px;
+	font-family: 'foliobold';
+  	/*vertical-align: 145%;*/
+  	vertical-align: top;
+  	font-size: 30% !important;
+  }
+  
+  a.pop2-exp {
+	font-family: 'foliobold';
+  	/*vertical-align: 145%;*/
+  	vertical-align: top;
+  	font-size: 30% !important;
+  }
+  
+  a.pop3-exp {
+	  margin-left: 6px;
+	  font-family: 'foliobold';
+	  /*vertical-align: 145%;*/
+	  vertical-align: top;
+	  font-size: 30% !important;
+  }
+  
+  a.pop4-exp {
+	  margin-left: 4px;
+	  font-family: 'foliobold';
+	  /*vertical-align: 145%;*/
+	  vertical-align: top;
+	  font-size: 30% !important;
+  }
+
+  .pop1-toggle:hover, .pop2-toggle:hover, 
+  .pop3-toggle:hover, .pop4-toggle:hover {
+      cursor: pointer;
+  }
+
+ /**
+  * (en) Emphasizing external Hyperlinks via CSS
+  * (de) Hervorhebung externer Hyperlinks mit CSS
+  *
+  * @section             content-external-links
+  * @app-yaml-default    disabled
+  */
+
+  /*
+  #main a[href^="http://www.my-domain.com"],
+  #main a[href^="https://www.my-domain.com"]
+  {
+    padding-left:12px;
+    background-image:url('your_image.gif');
+    background-repeat:no-repeat;
+    background-position:0 0.45em;
+  }
+  */
+}
+
+
+/* Smaller screens */
+	@media only screen and (max-width: 1023px) {
+		
+		div.angle3 { left: 50px; }
+		
+	}
+
+/* Smaller than standard 960 (devices and browsers) */
+	@media only screen and (max-width: 959px) {
+		#content.info #title-wrapper { max-width: 77%; }
+    h1 { font-size: 400%; }
+	}
+
+/* Tablet Portrait size to standard 960 (devices and browsers) */
+	@media only screen and (min-width: 768px) and (max-width: 959px) {}
+
+
+/* All Mobile Sizes (devices and browser) */
+	@media only screen and (max-width: 767px) {
+		#content.info #title-wrapper { max-width: 87%; }
+    h1 { font-size: 400%; }
+	}
+	
+/* Mobile devices in landscape */
+	@media handheld, only screen and (max-width: 767px) and (orientation:landscape) {
+		#content.info #title-wrapper { max-width: 60%; }
+		
+		div.angle1 { left: 15px; }
+		div.angle2 { left: 15px; }
+		div.angle3 { left: 30px; }
+	}	
+		
+/* Mobile Portrait Size (devices and browsers) */
+	@media handheld, only screen and (max-width: 480px) {
+	
+		body {
+		    overflow-y: scroll;
+			}
+
+    h1 { font-size: 250%; }
+
+		#content.info .eightcol {
+		    width: 100%;
+		    min-width: 0;
+		    margin-left: 0px;
+		    margin-right: 0px;
+		    padding-left: 0px;
+		    padding-right: 0px;
+		  }
+		
+		#content.info #title-wrapper { max-width: 100%; }
+		
+		div.angle1 { left: 15px; }
+		div.angle2 { left: 15px; }
+	  div.angle3 { left: 30px; }
+	}
+
+/* Mobile devices in landscape */
+	@media handheld, only screen and (max-width: 480px) and (orientation:landscape) {
+		#content.info #title-wrapper { max-width: 60%; }
+		div.angle1 { left: 10px; }
+		div.angle2 { left: 10px; }
+		div.angle3 { left: 20px; }
+	}
+
+
+/* ========================================== */
+/* ! Provide higher res assets for iPhone 4   */
+/* ========================================== */
+
+@media only screen and (-webkit-min-device-pixel-ratio: 2) { 
+
+/*	.logo {
+		background: url(logo2x.jpg) no-repeat;
+		background-size: 212px 303px;
+	}*/
+
+}
