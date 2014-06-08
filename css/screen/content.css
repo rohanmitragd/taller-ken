@@ -293,6 +293,7 @@
 	  z-index: 2;
 	  overflow: hidden;
     padding: 2% 1%;
+    pointer-events: none;
   }
   
   #bg div.logo-col {
@@ -368,14 +369,14 @@
   }
   
  div.leftnav {
-  	  z-index: 4;
+  	z-index: 4;
 	  position: fixed;
 	  top: 3%;
 	  left: 2.5%;
   }
   
   div.rightnav {
-  	  z-index: 4;
+  	z-index: 4;
 	  position: fixed;
 	  top: 3%;
 	  right: 2.5%;
@@ -411,6 +412,10 @@
 
   #content.form div.fourcol {
     margin-top: 11%;
+  }
+
+  #content.form div.fourcol img:hover {
+    cursor: pointer;
   }
   
   div.popup {
