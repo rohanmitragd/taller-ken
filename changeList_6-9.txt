@@ -1,0 +1,8 @@
+TK List:
+
+- Blue crossbar of 'E' in 'KEN' logo is too low by a little bit
+- add "KEN" toggle button in top right nav
+- make top right nav 'on/off' toggles instead of switches
+-address mobile image size in landscape
+- address mobile order of images with 'mobile' tag
+- first click (only) of 'Img' turns off 'KEN' layer
