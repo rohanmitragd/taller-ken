@@ -408,10 +408,11 @@
 	  z-index: 1;
     width: 95%;
     display: none;
+    height: 100%;
   }
 
   #content.form div.fourcol {
-    margin-top: 11%;
+    height: 100%;
   }
 
   #content.form div.fourcol img:hover {
@@ -592,6 +593,14 @@
 		    margin-right: 0px;
 		    padding-left: 0px;
 		    padding-right: 0px;
+		  }
+		  
+		  #content.form {
+			  width: 100%;
+		  }
+		  
+		  div.picB, div.picC {
+			  display: none;
 		  }
 		
 		#content.info #title-wrapper { max-width: 100%; }

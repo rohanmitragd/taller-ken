@@ -3,6 +3,7 @@
 //Passes tag(s) to functions.php and gets string of image source urls
 //Parses source string and appends image urls to DOM html on button clicks
 
+
 //Function to get tags
 function getTagArray(callback) {
 	var tagArray = [];
@@ -30,6 +31,7 @@ function getTagArray(callback) {
 	}); // end ajax call
 }
 
+//Function to get array of image urls
 function getSrc(tagName, callback) {
 	var srcArray = [];
 	$.ajax({
@@ -101,11 +103,54 @@ $(document).ready(function() {
 			mySrcs = e;
 			console.log(mySrcs);
 		});
-
-		$('div.picA').html('<img src="'+mySrcs[0]+'" alt="" />');
-		$('div.picB').html('<img src="'+mySrcs[1]+'" alt="" />');
-		$('div.picC').html('<img src="'+mySrcs[2]+'" alt="" />');
-
+		
+		var colW = 0.3075*($(window).width() * .95);
+		if ($(window).width() <= 480) {
+			colW = $(window).width() - 20;
+		}
+		
+		var picA = new Image();
+		$(picA).bind('load', function(){
+			var picH = picA.height;
+			var picW = picA.width;
+			var picCompH = (picH/picW)*colW;
+			console.log('col width: '+colW);
+			console.log('picA comp height: '+picCompH);
+			var topVal = ( $(window).height() - picCompH ) / 2;
+			document.querySelector('.picA').appendChild(picA);
+			$('div.picA img').css('margin-top',topVal+'px');
+		});
+		picA.src = mySrcs[0];
+		
+		
+		var picB = new Image();
+		$(picB).bind('load', function(){
+			var picH = picB.height;
+			var picW = picB.width;
+			var picCompH = (picH/picW)*colW;
+			console.log('col width: '+colW);
+			console.log('picB comp height: '+picCompH);
+			var topVal = ( $(window).height() - picCompH ) / 2;
+			document.querySelector('.picB').appendChild(picB);
+			$('div.picB img').css('margin-top',topVal+'px');
+		});
+		picB.src = mySrcs[1];
+		
+		
+		var picC = new Image();
+		$(picC).bind('load', function(){
+			var picH = picC.height;
+			var picW = picC.width;
+			var picCompH = (picH/picW)*colW;
+			console.log('col width: '+colW);
+			console.log('picC comp height: '+picCompH);
+			var topVal = ( $(window).height() - picCompH ) / 2;
+			document.querySelector('.picC').appendChild(picC);
+			$('div.picC img').css('margin-top',topVal+'px');
+		});
+		picC.src = mySrcs[2];
+		
+		
 		tCount++;
 
 		if (tCount >= myTags.length) {
@@ -114,9 +159,12 @@ $(document).ready(function() {
 	}
 
 	setPics();
-
-	$('#content.form div.fourcol img').click(function(){
+	
+		
+	$('#content.form div.fourcol').on('click', 'img', function(){
+		$('#content.form .fourcol').empty();
 		setPics();
+		console.log("img clicked!")
 	});
 
 });

@@ -180,12 +180,22 @@
     	<script src="http://code.jquery.com/ui/1.10.2/jquery-ui.js"></script>
 		<!-- Add other scripts here: -->
   		<script src="js/jquery.fittext.js"></script>
-  		<script src="js/jquery.flexverticalcenter.js"></script>
   		<script src="js/flickr.js"></script>
 		
 		
 		<!--Inline Javascript/JQuery Here:-->		
         <script type="text/javascript">
+			/*JQuery Generic Vert Align Center (w/ default positionining)*/
+	    	(function ($){
+		    	$.fn.vertAlignCenter = function() {
+					
+			    	var topMargin = ( this.parent().height() - this.height() )/2;
+					//console.log(this.parent().height() + ", " + this.height());
+			    	this.css("margin-top", topMargin+'px');
+			    	return this;
+					
+		    	};
+	    	}(jQuery));
 			
 			function constrainP1() {
 				if ( $('#pop1').hasClass('shown') ) {
@@ -354,6 +364,10 @@
 					setAngle1();
 					setAngle2();
 					setAngle3();
+					
+					$('div.picA img').vertAlignCenter();
+					$('div.picB img').vertAlignCenter();
+					$('div.picC img').vertAlignCenter();
 				});
 
 				//Language Toggle
@@ -398,6 +412,9 @@
 						$('.info').hide();
 						$('.form').show();
 						$('h1.active').fitText(1.1, { minFontSize: '12px', maxFontSize: '74px' });
+						$('div.picA img').vertAlignCenter();
+						$('div.picB img').vertAlignCenter();
+						$('div.picC img').vertAlignCenter();
 					};
 				});
 
@@ -408,6 +425,9 @@
 						$('.form').hide();
 						$('.info.shown').show();
 						$('h1.active').fitText(1.1, { minFontSize: '12px', maxFontSize: '74px' });
+						var titleTopMargin = ($('body').height() - $('h1.active').height())/2;
+						titleTopMargin = titleTopMargin + "px";
+						$('#title-wrapper').css("margin-top",titleTopMargin);
 					};
 				});
 
@@ -506,13 +526,13 @@
         </script>
         
                 	
-		<!-- mathiasbynens.be/notes/async-analytics-snippet Change UA-XXXXX-X to be your site's ID -->
+		<!--Google Analytics snippet Change UA-XXXXX-X to be your site's ID >
   		<script type="text/javascript">
     		var _gaq=[["_setAccount","UA-XXXXX-X"],["_trackPageview"]];
     		(function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];g.async=1;
     		g.src=("https:"==location.protocol?"//ssl":"//www")+".google-analytics.com/ga.js";
     		s.parentNode.insertBefore(g,s)}(document,"script"));
-        </script>
+        </script-->
         
 	</body>
 	
