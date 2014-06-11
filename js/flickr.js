@@ -113,12 +113,22 @@ $(document).ready(function() {
 		$(picA).bind('load', function(){
 			var picH = picA.height;
 			var picW = picA.width;
-			var picCompH = (picH/picW)*colW;
-			console.log('col width: '+colW);
-			console.log('picA comp height: '+picCompH);
-			var topVal = ( $(window).height() - picCompH ) / 2;
-			document.querySelector('.picA').appendChild(picA);
-			$('div.picA img').css('margin-top',topVal+'px');
+			
+			if ( ($(window).width() <= 480) && ($(window).height() <= 400) ) {
+				var picCompW = (picW/picH)*200;
+				var topVal = ( $(window).height() - 200 ) / 2;
+				var leftVal = ( $(window).width() - picCompW ) / 2;
+				document.querySelector('.picA').appendChild(picA);
+				$('div.picA img').css('margin-top',topVal+'px');
+				$('div.picA img').css('margin-left',leftVal+'px');
+			} else {
+				var picCompH = (picH/picW)*colW;
+				console.log('col width: '+colW);
+				console.log('picA comp height: '+picCompH);
+				var topVal = ( $(window).height() - picCompH ) / 2;
+				document.querySelector('.picA').appendChild(picA);
+				$('div.picA img').css('margin-top',topVal+'px');
+			}
 		});
 		picA.src = mySrcs[0];
 		

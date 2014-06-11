@@ -113,7 +113,7 @@
 		</div>
 		<div class="rightnav">
 			<h2>
-				<a class="info-toggle active">Txt</a>&nbsp;/&nbsp;<a class="form-toggle">Img</a>
+				<a class="info-toggle active">Txt</a>&nbsp;/&nbsp;<a class="form-toggle">Img</a>&nbsp;/&nbsp;<a class="logo-toggle active">KEN</a>
 			</h2>
 		</div>
 
@@ -188,12 +188,20 @@
 			/*JQuery Generic Vert Align Center (w/ default positionining)*/
 	    	(function ($){
 		    	$.fn.vertAlignCenter = function() {
-					
 			    	var topMargin = ( this.parent().height() - this.height() )/2;
 					//console.log(this.parent().height() + ", " + this.height());
 			    	this.css("margin-top", topMargin+'px');
 			    	return this;
 					
+		    	};
+	    	}(jQuery));
+	    	
+	    	(function ($){
+		    	$.fn.horizAlignCenter = function() {
+			    	var leftMargin = ( this.parent().width() - this.width() )/2;
+					//console.log(this.parent().height() + ", " + this.height());
+			    	this.css("margin-left", leftMargin+'px');
+			    	return this;
 		    	};
 	    	}(jQuery));
 			
@@ -258,7 +266,7 @@
 			}
 			
 			function vertAlignMidBar() {
-				var topVal = ( $(window).height() - $('div.horiz2').height() ) / 2;
+				var topVal = ( $('#bg div.logo-col').height() - $('div.horiz2').height() ) / 2;
 				$('div.horiz2').css('top', topVal + 'px');
 			}
 
@@ -368,6 +376,10 @@
 					$('div.picA img').vertAlignCenter();
 					$('div.picB img').vertAlignCenter();
 					$('div.picC img').vertAlignCenter();
+					
+					if ($(window).width() <= 480) {
+						$('div.picA img').horizAlignCenter();
+					}
 				});
 
 				//Language Toggle
@@ -404,33 +416,45 @@
 				});
 
 
-				//Info / Form toggle
+				//Info / Form / KEN toggle
+				var firstClick = true;
+								
 				$('a.form-toggle').click(function(){
-					if (!$('a.form-toggle').hasClass("active")) {
-						$('a.form-toggle').toggleClass("active");
+					if (firstClick) {
 						$('a.info-toggle').toggleClass("active");
-						$('.info').hide();
-						$('.form').show();
-						$('h1.active').fitText(1.1, { minFontSize: '12px', maxFontSize: '74px' });
-						$('div.picA img').vertAlignCenter();
-						$('div.picB img').vertAlignCenter();
-						$('div.picC img').vertAlignCenter();
-					};
+						$('.info.shown').toggle();
+						firstClick = false;
+					}
+					$('a.form-toggle').toggleClass("active");
+					$('.form').toggle();
+					$('h1.active').fitText(1.1, { minFontSize: '12px', maxFontSize: '74px' });
+					$('div.picA img').vertAlignCenter();
+					$('div.picB img').vertAlignCenter();
+					$('div.picC img').vertAlignCenter();
 				});
 
 				$('a.info-toggle').click(function(){
-					if (!$('a.info-toggle').hasClass("active")) {
-						$('a.form-toggle').toggleClass("active");
-						$('a.info-toggle').toggleClass("active");
-						$('.form').hide();
-						$('.info.shown').show();
-						$('h1.active').fitText(1.1, { minFontSize: '12px', maxFontSize: '74px' });
-						var titleTopMargin = ($('body').height() - $('h1.active').height())/2;
-						titleTopMargin = titleTopMargin + "px";
-						$('#title-wrapper').css("margin-top",titleTopMargin);
-					};
+					$('a.info-toggle').toggleClass("active");
+					$('.info.shown').toggle();
+					$('h1.active').fitText(1.1, { minFontSize: '12px', maxFontSize: '74px' });
+					var titleTopMargin = ($('body').height() - $('h1.active').height())/2;
+					titleTopMargin = titleTopMargin + "px";
+					$('#title-wrapper').css("margin-top",titleTopMargin);
+					constrainP1();
+					constrainP2();
+					constrainP3();
+					constrainP4();
 				});
-
+				
+				$('a.logo-toggle').click(function(){
+					$('a.logo-toggle').toggleClass("active");
+					$('#bg').toggle();
+					setFullHeight();
+					vertAlignMidBar();
+					setAngle1();
+					setAngle2();
+					setAngle3();
+				});
 
 				//Superscript toggles
 

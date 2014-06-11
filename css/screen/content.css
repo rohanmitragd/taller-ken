@@ -247,6 +247,7 @@
 
   body {
     position: relative;
+    overflow-y: hidden !important;
   }
 
   sup  {
@@ -387,7 +388,9 @@
   }
   
   #content.info {
-	  position: relative;
+	  position: absolute;
+	  top: 0;
+	  left: 0;
 	  z-index: 3;
   }
 
@@ -404,7 +407,9 @@
   }
 
   #content.form {
-	  position: relative;
+	  position: absolute;
+	  top: 0;
+	  left: 2.5%;
 	  z-index: 1;
     width: 95%;
     display: none;
@@ -597,6 +602,7 @@
 		  
 		  #content.form {
 			  width: 100%;
+			  left: 0;
 		  }
 		  
 		  div.picB, div.picC {
@@ -617,7 +623,12 @@
 		div.angle2 { left: 10px; }
 		div.angle3 { left: 20px; }
 	}
-
+	
+	@media handheld, only screen and (max-width: 480px) and (max-height: 400px) {
+		#content.form div.picA img{
+			max-height: 200px;
+		}
+	}
 
 /* ========================================== */
 /* ! Provide higher res assets for iPhone 4   */
