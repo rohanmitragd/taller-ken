@@ -93,7 +93,7 @@ $(document).ready(function() {
 
 	getTagArray(function(e){
 		myTags = e;
-		//console.log(myTags);
+		console.log(myTags);
 	});
 	
 	function setPics() {

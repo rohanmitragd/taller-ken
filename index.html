@@ -113,7 +113,7 @@
 		</div>
 		<div class="rightnav">
 			<h2>
-				<a class="info-toggle active">Txt</a>&nbsp;/&nbsp;<a class="form-toggle">Img</a>&nbsp;/&nbsp;<a class="logo-toggle active">KEN</a>
+				<a class="info-toggle active">Txt</a>&nbsp;/&nbsp;<a class="logo-toggle active">KEN</a>&nbsp;/&nbsp;<a class="form-toggle">Img</a>
 			</h2>
 		</div>
 
@@ -423,6 +423,8 @@
 					if (firstClick) {
 						$('a.info-toggle').toggleClass("active");
 						$('.info.shown').toggle();
+						$('a.logo-toggle').toggleClass("active");
+						$('#bg').toggle();
 						firstClick = false;
 					}
 					$('a.form-toggle').toggleClass("active");

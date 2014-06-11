@@ -250,6 +250,14 @@
     overflow-y: hidden !important;
   }
 
+  #content.info, #content.info > div.twelvecol, #title-wrapper, #title-wrapper h1 {
+    pointer-events: none;
+  }
+
+  #title-wrapper h1 * {
+    pointer-events: auto;
+  }
+
   sup  {
     font-family: 'foliobold';
   	/*vertical-align: 145%;*/
