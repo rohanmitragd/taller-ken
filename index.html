@@ -444,6 +444,11 @@
 					$('a.form-toggle').toggleClass("active");
 					$('.form').toggle();
 					$('#bg').toggle();
+					setFullHeight();
+					vertAlignMidBar();
+					setAngle1();
+					setAngle2();
+					setAngle3();
 					$('h1.active').fitText(1.1, { minFontSize: '12px', maxFontSize: '74px' });
 					var titleTopMargin = ($('body').height() - $('h1.active').height())/2;
 					titleTopMargin = titleTopMargin + "px";
