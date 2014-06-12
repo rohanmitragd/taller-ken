@@ -113,7 +113,7 @@
 		</div>
 		<div class="rightnav">
 			<h2>
-				<a class="info-toggle active">Txt</a>&nbsp;/&nbsp;<a class="logo-toggle active">KEN</a>&nbsp;/&nbsp;<a class="form-toggle">Img</a>
+				<a class="info-toggle active">Txt</a><!--a class="logo-toggle active">KEN</a-->&nbsp;/&nbsp;<a class="form-toggle">Img</a>
 			</h2>
 		</div>
 
@@ -417,18 +417,21 @@
 
 
 				//Info / Form / KEN toggle
-				var firstClick = true;
+				//var firstClick = true;
 								
 				$('a.form-toggle').click(function(){
-					if (firstClick) {
+					/*if (firstClick) {
 						$('a.info-toggle').toggleClass("active");
 						$('.info.shown').toggle();
 						$('a.logo-toggle').toggleClass("active");
 						$('#bg').toggle();
 						firstClick = false;
-					}
+					}*/
 					$('a.form-toggle').toggleClass("active");
 					$('.form').toggle();
+					$('a.info-toggle').toggleClass("active");
+					$('.info.shown').toggle();
+					$('#bg').toggle();
 					$('h1.active').fitText(1.1, { minFontSize: '12px', maxFontSize: '74px' });
 					$('div.picA img').vertAlignCenter();
 					$('div.picB img').vertAlignCenter();
@@ -438,6 +441,9 @@
 				$('a.info-toggle').click(function(){
 					$('a.info-toggle').toggleClass("active");
 					$('.info.shown').toggle();
+					$('a.form-toggle').toggleClass("active");
+					$('.form').toggle();
+					$('#bg').toggle();
 					$('h1.active').fitText(1.1, { minFontSize: '12px', maxFontSize: '74px' });
 					var titleTopMargin = ($('body').height() - $('h1.active').height())/2;
 					titleTopMargin = titleTopMargin + "px";
@@ -448,6 +454,7 @@
 					constrainP4();
 				});
 				
+				/*
 				$('a.logo-toggle').click(function(){
 					$('a.logo-toggle').toggleClass("active");
 					$('#bg').toggle();
@@ -457,6 +464,7 @@
 					setAngle2();
 					setAngle3();
 				});
+				*/
 
 				//Superscript toggles
 
