@@ -60,6 +60,7 @@ function getSrc(tagName, callback) {
 					intC = Math.floor(Math.random()*(json.photos.photo.length));
 				}
 			} else if (json.photos.photo.length < 3) { //if less than 3 photos, repeats are ok
+				console.log('less than 3 images in set');
 				intA = Math.floor(Math.random()*(json.photos.photo.length));
 				intB = Math.floor(Math.random()*(json.photos.photo.length));
 				intC = Math.floor(Math.random()*(json.photos.photo.length));
@@ -89,10 +90,16 @@ $(document).ready(function() {
 	
 	var myTags = [];
 	var mySrcs = [];
+	var mobileSrc = [];
 	var tCount = 0;
+	var clickCount = 0;
 
 	getTagArray(function(e){
 		myTags = e;
+		var mobileIndex = $.inArray('mobile',myTags);
+		if (mobileIndex != -1) {
+			myTags.splice(mobileIndex, 1);
+		}
 		console.log(myTags);
 	});
 	
@@ -103,6 +110,13 @@ $(document).ready(function() {
 			mySrcs = e;
 			console.log(mySrcs);
 		});
+		if ($(window).width() <= 480) {
+			var tagParam = myTags[tCount] + ',mobile';
+			getSrc(tagParam, function(e){
+				mobileSrc = e;
+				console.log(mobileSrc);
+			});
+		}
 		
 		var colW = 0.3075*($(window).width() * .95);
 		if ($(window).width() <= 480) {
@@ -130,7 +144,13 @@ $(document).ready(function() {
 				$('div.picA img').css('margin-top',topVal+'px');
 			}
 		});
-		picA.src = mySrcs[0];
+		if ( ($(window).width() <= 480) && (clickCount < myTags.length)) {
+			picA.src = mobileSrc[0];
+			clickCount++;
+		}
+		else {
+			picA.src = mySrcs[0];
+		}
 		
 		
 		var picB = new Image();
